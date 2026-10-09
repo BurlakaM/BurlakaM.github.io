@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Maksym Burlaka - Full Stack Developer (PHP/Laravel, React), Poznan, Poland">
+<title>Maksym Burlaka Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column laid out like API docs; each section is an endpoint (method + path) with its response below */
+:root{
+  --bg:#f5f7fa; --surface:#ffffff; --ink:#18202b; --muted:#5a6676; --line:#dde3ea;
+  --accent:#2747c9; --accent-soft:#e6ebfb;
+  --get:#1f7a4d; --get-bg:#e3f3ea; --post:#9a5b06; --post-bg:#fbefdc;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f141b; --surface:#161d27; --ink:#e7ecf2; --muted:#9aa6b6; --line:#263140;
+  --accent:#8ea4ff; --accent-soft:#1d2645;
+  --get:#6fd3a0; --get-bg:#15301f; --post:#f0b55e; --post-bg:#352611; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --surface:#161d27; --ink:#e7ecf2; --muted:#9aa6b6; --line:#263140;
+  --accent:#8ea4ff; --accent-soft:#1d2645;
+  --get:#6fd3a0; --get-bg:#15301f; --post:#f0b55e; --post-bg:#352611; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:48px 64px;display:grid;gap:56px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+
+/* hero */
+.hero{display:grid;gap:20px}
+.status{font-family:var(--mono);font-size:13px;color:var(--get);display:flex;align-items:center;gap:8px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--get)}
+.hero h1{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:700;letter-spacing:-.02em}
+.role{font-family:var(--mono);font-size:15px;color:var(--muted)}
+.role b{color:var(--accent);font-weight:500}
+.lead{font-size:1.15rem;max-width:62ch}
+.contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.chip{font-family:var(--mono);font-size:13.5px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:6px;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+button.chip{cursor:pointer}
+button.chip:hover,a.chip:hover{border-color:var(--accent)}
+.chip .k{color:var(--muted)}
+
+/* endpoint headings */
+.ep{display:grid;gap:18px}
+.ep-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.m{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;padding:3px 8px;border-radius:4px;background:var(--get-bg);color:var(--get)}
+.path{font-family:var(--mono);font-size:14px;color:var(--muted)}
+.ep-head h2{font-size:1.7rem;font-weight:700;flex-basis:100%}
+
+/* case studies */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:10px;align-content:start}
+.case .where{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.case h3{font-size:1.2rem;font-weight:500}
+.case p{color:var(--muted);font-size:15px}
+.result{font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--accent-soft);padding:6px 10px;border-radius:6px}
+.result span{color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.case .chip{justify-self:start;max-width:100%;overflow-wrap:anywhere}
+.tag{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 7px}
+
+/* experience */
+.jobs{display:grid;gap:28px}
+.job{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:4px}
+.job h3{font-size:1.25rem;font-weight:500}
+.job .co{color:var(--muted);font-size:15px;margin-top:2px}
+.job ul{margin:10px 0 0;padding-left:18px;display:grid;gap:6px}
+
+/* skills: JSON-like table */
+.skills{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+.skills dl{margin:0;display:grid;grid-template-columns:200px minmax(0,1fr)}
+.skills dt,.skills dd{margin:0;padding:12px 18px;border-top:1px solid var(--line)}
+.skills dt:first-of-type,.skills dd:first-of-type{border-top:0}
+.skills dt{font-family:var(--mono);font-size:13.5px;color:var(--accent)}
+.skills dd{font-size:15px}
+
+/* education */
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.edu-item{border-top:2px solid var(--ink);padding-top:10px;display:grid;gap:4px}
+.edu-item .kind{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.edu-item h3{font-family:var(--body);font-size:1.02rem;font-weight:600;line-height:1.35}
+.edu-item p{color:var(--muted);font-size:14.5px}
+
+/* contact */
+.post .m{background:var(--post-bg);color:var(--post)}
+.final{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:16px}
+.final p{max-width:60ch}
+footer{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.toast{font-family:var(--mono);font-size:13px;color:var(--get)}
+
+@media (max-width:640px){
+  .cases,.edu{grid-template-columns:minmax(0,1fr)}
+  .job{grid-template-columns:minmax(0,1fr);gap:4px}
+  .skills dl{grid-template-columns:minmax(0,1fr)}
+  .skills dd{border-top:0;padding-top:0}
+}
+@media (prefers-reduced-motion:no-preference){.chip{transition:border-color .15s}}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <header class="hero">
+    <div class="status">Open to Full Stack / Backend roles · Poznań or remote</div>
+    <h1>Maksym Burlaka</h1>
+    <p class="role">Full Stack Developer · <b>PHP / Laravel</b> + <b>JavaScript / React</b></p>
+    <p class="lead">I build REST APIs, admin panels and B2B platforms end to end, from database schema to the React screen. Three years of commercial work on CRM systems, e-commerce stores and compliance software, with a background in cybersecurity.</p>
+    <div class="contact">
+      <button class="chip" type="button" id="copy-email" data-copy="maksburlakao9@gmail.com"><span class="k">email</span> maksburlakao9@gmail.com</button>
+      <span class="chip"><span class="k">phone</span> +380 66 439 42 30</span>
+      <a class="chip" href="https://github.com/BurlakaM" target="_blank" rel="noopener"><span class="k">code</span> GitHub ↗</a>
+      <a class="chip" href="https://www.linkedin.com/in/maksim-burlaka/" target="_blank" rel="noopener"><span class="k">profile</span> LinkedIn ↗</a>
+      <a class="chip" href="https://www.credly.com/users/maks-burlaka" target="_blank" rel="noopener"><span class="k">badges</span> Credly ↗</a>
+      <span class="toast" id="toast" role="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <section class="ep" aria-labelledby="h-work">
+    <div class="ep-head"><span class="m">GET</span><span class="path">/projects</span><h2 id="h-work">Selected work</h2></div>
+    <div class="cases">
+      <article class="case">
+        <div class="where">IQ Technology · 2026</div>
+        <h3>Contractor scheduling calendar</h3>
+        <p>Interactive event calendar for a compliance platform, used to coordinate contractors and site visits. React front end on REST endpoints with server-side conflict checks.</p>
+        <div class="result">result: <span>~30% fewer scheduling conflicts</span></div>
+        <div class="tags"><span class="tag">React</span><span class="tag">MUI</span><span class="tag">REST API</span><span class="tag">RBAC</span></div>
+      </article>
+      <article class="case">
+        <div class="where">IQ Technology · 2026</div>
+        <h3>Shared UI component library</h3>
+        <p>20+ reusable components (forms, tables, filters, modals) that keep the FlexiForm and FlexiDoc modules consistent and faster to build.</p>
+        <div class="result">result: <span>~25% less UI time per feature</span></div>
+        <div class="tags"><span class="tag">React</span><span class="tag">Bootstrap</span><span class="tag">MUI</span></div>
+      </article>
+      <article class="case">
+        <div class="where">SWIT · 2023–2026</div>
+        <h3>Custom CRM</h3>
+        <p>CRM for users, roles, transactions, workflows and notifications, replacing manual spreadsheet work for a client team.</p>
+        <div class="result">result: <span>~15 hours saved per week</span></div>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">Queues</span><span class="tag">JavaScript</span></div>
+      </article>
+      <article class="case">
+        <div class="where">SWIT · 2023–2026</div>
+        <h3>API performance on large databases</h3>
+        <p>Profiled slow endpoints, added indexes, removed N+1 queries, cached hot reads in Redis and moved imports and reports to background jobs.</p>
+        <div class="result">result: <span>~40% faster API responses</span></div>
+        <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">Laravel</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="ep" aria-labelledby="h-pet">
+    <div class="ep-head"><span class="m">GET</span><span class="path">/github</span><h2 id="h-pet">Pet projects</h2></div>
+    <div class="cases">
+      <article class="case">
+        <div class="where">Open source · Laravel 12</div>
+        <h3>Domain Check</h3>
+        <p>Domain availability monitor. Each user adds their own domains with a check interval, HTTP method and timeout; the Laravel Scheduler runs the checks, logs status code and response time to a history table and sends web notifications.</p>
+        <div class="tags"><span class="tag">PHP 8</span><span class="tag">Laravel 12</span><span class="tag">MySQL</span><span class="tag">Scheduler</span><span class="tag">Notifications</span><span class="tag">Tailwind</span></div>
+        <a class="chip" href="https://github.com/BurlakaM/domain-check" target="_blank" rel="noopener"><span class="k">repo</span> BurlakaM/domain-check ↗</a>
+      </article>
+      <article class="case">
+        <div class="where">Open source · Full stack</div>
+        <h3>FlowSync</h3>
+        <p>Full-stack TypeScript app with a Nest.js API, React front end and MySQL, fully containerized with Docker Compose for dev and prod. A GitHub Actions pipeline builds and pushes images to Docker Hub on every push to main.</p>
+        <div class="tags"><span class="tag">Nest.js</span><span class="tag">React</span><span class="tag">MySQL 8</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
+        <a class="chip" href="https://github.com/BurlakaM/flowsync" target="_blank" rel="noopener"><span class="k">repo</span> BurlakaM/flowsync ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="ep" aria-labelledby="h-exp">
+    <div class="ep-head"><span class="m">GET</span><span class="path">/experience</span><h2 id="h-exp">Experience</h2></div>
+    <div class="jobs">
+      <div class="job">
+        <div class="when">Mar 2026 – now</div>
+        <div>
+          <h3>Full Stack Developer</h3>
+          <p class="co">IQ Technology · B2B platforms for inspections, audits and contractor coordination</p>
+          <ul>
+            <li>Shipped 8+ operational modules in 6 months, from schema and REST API to React UI.</li>
+            <li>Connected dashboards and audit-trail reports to role-based access control for multi-tenant clients.</li>
+            <li>Took features from client requirements to release in 1–2 week cycles during a phased rollout.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Aug 2023 – Mar 2026</div>
+        <div>
+          <h3>Full Stack Developer</h3>
+          <p class="co">SWIT "SITE WEB IT" · e-commerce, CRM and automation for small and mid-sized businesses</p>
+          <ul>
+            <li>Raised conversion by ~10–15% across 5+ online stores through payment and delivery API integrations and checkout UX work.</li>
+            <li>Introduced Docker environments and Git-based CI/CD with code review.</li>
+            <li>Refactored legacy modules toward SOLID and a layered architecture.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ep" aria-labelledby="h-skills">
+    <div class="ep-head"><span class="m">GET</span><span class="path">/skills</span><h2 id="h-skills">Stack</h2></div>
+    <div class="skills"><dl>
+      <dt>backend</dt><dd>PHP 8, Laravel, Yii2, Node.js, Nest.js</dd>
+      <dt>frontend</dt><dd>JavaScript, React, Next.js, Tailwind CSS, SCSS, Material UI, Bootstrap</dd>
+      <dt>api</dt><dd>REST API design, third-party and payment integrations, authentication, role-based access control</dd>
+      <dt>data</dt><dd>MySQL, PostgreSQL, query optimization, indexing, Redis caching, queues, background jobs</dd>
+      <dt>tooling</dt><dd>Docker, Git, GitHub/GitLab, CI/CD, code review</dd>
+      <dt>platforms</dt><dd>WordPress, OpenCart</dd>
+      <dt>languages</dt><dd>English B1+, Ukrainian (native), Russian (native)</dd>
+    </dl></div>
+  </section>
+
+  <section class="ep" aria-labelledby="h-edu">
+    <div class="ep-head"><span class="m">GET</span><span class="path">/education</span><h2 id="h-edu">Education and certificates</h2></div>
+    <div class="edu">
+      <div class="edu-item"><span class="kind">Degree · 2021–2025</span><h3>Bachelor's in Cybersecurity</h3><p>NTU "Kharkiv Polytechnic Institute"</p></div>
+      <div class="edu-item"><span class="kind">Course · 2022–2023</span><h3>Web Programming</h3><p>ITSTEP Academy</p></div>
+      <div class="edu-item"><span class="kind">Cisco · Jan 2025</span><h3>CyberOps Associate</h3><p>Security monitoring and incident analysis</p></div>
+      <div class="edu-item"><span class="kind">Cisco · Nov 2023</span><h3>CCNA: Enterprise Networking, Security, and Automation</h3><p>Network security, virtualization, automation</p></div>
+    </div>
+  </section>
+
+  <section class="ep post" aria-labelledby="h-contact">
+    <div class="ep-head"><span class="m">POST</span><span class="path">/contact</span><h2 id="h-contact">Let's talk</h2></div>
+    <div class="final">
+      <p>Looking for a Full Stack or Laravel role in Poland or remote. Email is the fastest way to reach me.</p>
+      <div class="contact">
+        <button class="chip" type="button" id="copy-email-2" data-copy="maksburlakao9@gmail.com"><span class="k">copy</span> maksburlakao9@gmail.com</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Maksym Burlaka · Poznań, Poland</footer>
+</main>
+
+<script>
+(function(){
+  var toast=document.getElementById('toast');
+  function say(t){toast.textContent=t;setTimeout(function(){toast.textContent='';},2500);}
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var v=btn.getAttribute('data-copy');
+      var fallback=function(){var r=document.createRange();r.selectNodeContents(btn);var s=getSelection();s.removeAllRanges();s.addRange(r);say('Selected, press Ctrl+C');};
+      try{navigator.clipboard.writeText(v).then(function(){say('Email copied');},fallback);}catch(e){fallback();}
+    });
+  });
+})();
+</script>
+</body>
+</html>
