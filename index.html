@@ -3,258 +3,789 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Maksym Burlaka - Full Stack Developer (PHP/Laravel, React), Poznan, Poland">
-<title>Maksym Burlaka Portfolio</title>
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Maksym Burlaka - Full Stack Engineer (PHP/Laravel, Node.js/NestJS, React). AI-first, security-minded. Poznan, Poland / remote.">
+<meta property="og:title" content="Maksym Burlaka | Full Stack Engineer">
+<meta property="og:description" content="B2B platforms from schema to screen. PHP/Laravel, NestJS, React. AI-first, security-minded.">
+<title>Maksym Burlaka | Full Stack Engineer</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23ff5a1f'/%3E%3Cpath d='M0 0h32L0 32z' fill='%2310143a'/%3E%3Ctext x='21' y='26' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='13' fill='%2310143a'%3EMB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('mb-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 <style>
-/* Layout: single reading column laid out like API docs; each section is an endpoint (method + path) with its response below */
+/* =========================================================
+   Drawing-sheet portfolio. Light = vellum, dark = blueprint.
+   Two "inks" (blue + orange) overprint like a riso print.
+   ========================================================= */
 :root{
-  --bg:#f5f7fa; --surface:#ffffff; --ink:#18202b; --muted:#5a6676; --line:#dde3ea;
-  --accent:#2747c9; --accent-soft:#e6ebfb;
-  --get:#1f7a4d; --get-bg:#e3f3ea; --post:#9a5b06; --post-bg:#fbefdc;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --paper:#f2f1ea; --card:#f9f8f3; --ink:#10143a; --muted:#555979; --rule:#10143a; --hair:rgba(16,20,58,.2);
+  --blue:#2233c9; --orange:#ff5a1f; --on-orange:#10143a;
+  --grid:rgba(34,51,201,.075); --grid2:rgba(34,51,201,.04);
+  --ov:normal; --oz:-1;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .06 0 0 0 0 .08 0 0 0 0 .22 0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-o:.2;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
+  --mono:"Spline Sans Mono",ui-monospace,Menlo,Consolas,monospace;
+  --top:52px; --bot:36px; --rail:0px;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f141b; --surface:#161d27; --ink:#e7ecf2; --muted:#9aa6b6; --line:#263140;
-  --accent:#8ea4ff; --accent-soft:#1d2645;
-  --get:#6fd3a0; --get-bg:#15301f; --post:#f0b55e; --post-bg:#352611; color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0b1130; --card:#111a44; --ink:#e7eaff; --muted:#9aa3d6; --rule:#b9c5ff; --hair:rgba(185,197,255,.24);
+  --blue:#8ea2ff; --orange:#ff7a3d;
+  --grid:rgba(142,162,255,.1); --grid2:rgba(142,162,255,.05);
+  --ov:normal; --oz:-1;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .7 0 0 0 0 .78 0 0 0 0 1 0 0 0 .9 -.34'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-o:.35; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f141b; --surface:#161d27; --ink:#e7ecf2; --muted:#9aa6b6; --line:#263140;
-  --accent:#8ea4ff; --accent-soft:#1d2645;
-  --get:#6fd3a0; --get-bg:#15301f; --post:#f0b55e; --post-bg:#352611; color-scheme:dark}
+  --paper:#0b1130; --card:#111a44; --ink:#e7eaff; --muted:#9aa3d6; --rule:#b9c5ff; --hair:rgba(185,197,255,.24);
+  --blue:#8ea2ff; --orange:#ff7a3d;
+  --grid:rgba(142,162,255,.1); --grid2:rgba(142,162,255,.05);
+  --ov:normal; --oz:-1;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .7 0 0 0 0 .78 0 0 0 0 1 0 0 0 .9 -.34'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-o:.35; color-scheme:dark}
+@media (min-width:1100px){:root{--rail:64px}}
 
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0}
-.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:48px 64px;display:grid;gap:56px}
-a{color:var(--accent);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--top) + 28px)}
+body{margin:0;padding-bottom:var(--bot);background-color:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:clip;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px),
+    linear-gradient(var(--grid2) 1px,transparent 1px),linear-gradient(90deg,var(--grid2) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+  -webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;background:var(--grain);opacity:var(--grain-o)}
+a{color:inherit}
 p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.9;text-wrap:balance}
+ul,ol{margin:0;padding:0;list-style:none}
+::selection{background:var(--orange);color:var(--on-orange)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.skip{position:absolute;left:12px;top:-60px;z-index:300;background:var(--orange);color:var(--on-orange);padding:8px 14px;font:500 13px var(--mono)}
+.skip:focus{top:8px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:32px}
+.page{margin-left:var(--rail)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 
-/* hero */
-.hero{display:grid;gap:20px}
-.status{font-family:var(--mono);font-size:13px;color:var(--get);display:flex;align-items:center;gap:8px}
-.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--get)}
-.hero h1{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:700;letter-spacing:-.02em}
-.role{font-family:var(--mono);font-size:15px;color:var(--muted)}
-.role b{color:var(--accent);font-weight:500}
-.lead{font-size:1.15rem;max-width:62ch}
-.contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.chip{font-family:var(--mono);font-size:13.5px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:6px;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
-button.chip{cursor:pointer}
-button.chip:hover,a.chip:hover{border-color:var(--accent)}
-.chip .k{color:var(--muted)}
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:50;height:var(--top);background:var(--paper);border-bottom:1.5px solid var(--rule);display:flex;align-items:center;gap:20px;padding-inline:20px;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.brand{display:flex;gap:10px;align-items:center;text-decoration:none;font-weight:600;white-space:nowrap}
+.brand i{width:15px;height:15px;background:var(--orange);clip-path:polygon(0 0,100% 0,0 100%)}
+.top nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;justify-content:center}
+.top nav::-webkit-scrollbar{display:none}
+.top nav a{position:relative;padding:8px 11px;text-decoration:none;white-space:nowrap;color:var(--muted)}
+.top nav a b{font-weight:500;margin-right:7px;opacity:.65}
+.top nav a:hover,.top nav a.on{color:var(--ink)}
+.top nav a.on::after{content:"";position:absolute;left:11px;right:11px;bottom:1px;height:3px;background:var(--orange)}
+.right{display:flex;gap:14px;align-items:center;margin-left:auto}
+.live{display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
+.live i{width:8px;height:8px;border-radius:50%;background:#1fb35a;animation:blink 1.8s infinite}
+@keyframes blink{50%{opacity:.25}}
+.tbtn{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--ink);background:transparent;border:1.5px solid var(--rule);padding:6px 11px;cursor:pointer;white-space:nowrap}
+.tbtn:hover{background:var(--orange);border-color:var(--orange);color:var(--on-orange)}
 
-/* endpoint headings */
-.ep{display:grid;gap:18px}
-.ep-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
-.m{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;padding:3px 8px;border-radius:4px;background:var(--get-bg);color:var(--get)}
-.path{font-family:var(--mono);font-size:14px;color:var(--muted)}
-.ep-head h2{font-size:1.7rem;font-weight:700;flex-basis:100%}
-
-/* case studies */
-.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.case{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:10px;align-content:start}
-.case .where{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.case h3{font-size:1.2rem;font-weight:500}
-.case p{color:var(--muted);font-size:15px}
-.result{font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--accent-soft);padding:6px 10px;border-radius:6px}
-.result span{color:var(--accent)}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.case .chip{justify-self:start;max-width:100%;overflow-wrap:anywhere}
-.tag{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 7px}
-
-/* experience */
-.jobs{display:grid;gap:28px}
-.job{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px}
-.job .when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:4px}
-.job h3{font-size:1.25rem;font-weight:500}
-.job .co{color:var(--muted);font-size:15px;margin-top:2px}
-.job ul{margin:10px 0 0;padding-left:18px;display:grid;gap:6px}
-
-/* skills: JSON-like table */
-.skills{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
-.skills dl{margin:0;display:grid;grid-template-columns:200px minmax(0,1fr)}
-.skills dt,.skills dd{margin:0;padding:12px 18px;border-top:1px solid var(--line)}
-.skills dt:first-of-type,.skills dd:first-of-type{border-top:0}
-.skills dt{font-family:var(--mono);font-size:13.5px;color:var(--accent)}
-.skills dd{font-size:15px}
-
-/* education */
-.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.edu-item{border-top:2px solid var(--ink);padding-top:10px;display:grid;gap:4px}
-.edu-item .kind{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.edu-item h3{font-family:var(--body);font-size:1.02rem;font-weight:600;line-height:1.35}
-.edu-item p{color:var(--muted);font-size:14.5px}
-
-/* contact */
-.post .m{background:var(--post-bg);color:var(--post)}
-.final{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:16px}
-.final p{max-width:60ch}
-footer{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
-.toast{font-family:var(--mono);font-size:13px;color:var(--get)}
-
-@media (max-width:640px){
-  .cases,.edu{grid-template-columns:minmax(0,1fr)}
-  .job{grid-template-columns:minmax(0,1fr);gap:4px}
-  .skills dl{grid-template-columns:minmax(0,1fr)}
-  .skills dd{border-top:0;padding-top:0}
+/* ---------- ruler + status ---------- */
+.ruler{display:none}
+@media (min-width:1100px){
+  .ruler{display:block;position:fixed;left:0;top:var(--top);bottom:var(--bot);width:var(--rail);border-right:1.5px solid var(--rule);background:var(--paper);overflow:hidden;z-index:40}
+  .scale{position:absolute;left:0;right:0;top:0;height:calc(100% + 140px);will-change:transform;
+    background:
+      repeating-linear-gradient(to bottom,var(--rule) 0 1px,transparent 1px 10px) right 0 top 0/9px 100% no-repeat,
+      repeating-linear-gradient(to bottom,var(--rule) 0 1.5px,transparent 1.5px 50px) right 0 top 0/18px 100% no-repeat,
+      repeating-linear-gradient(to bottom,var(--rule) 0 2px,transparent 2px 100px) right 0 top 0/30px 100% no-repeat}
+  .scale b{position:absolute;left:7px;font:500 10px var(--mono);color:var(--muted);transform:translateY(3px)}
+  .ptr{position:absolute;left:0;right:0;top:0;height:2px;background:var(--orange);will-change:transform;opacity:0;transition:opacity .2s}
+  .ruler.live .ptr{opacity:1}
 }
-@media (prefers-reduced-motion:no-preference){.chip{transition:border-color .15s}}
+.status{position:fixed;left:0;right:0;bottom:0;height:var(--bot);z-index:50;background:var(--paper);border-top:1.5px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:16px;padding-inline:20px;font:400 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.status b{font-weight:600}
+.status i{font-style:normal;display:inline-block;min-width:4.2ch}
+.status .sg{display:flex;gap:18px;align-items:center}
+.status .c{color:var(--muted)}
+
+/* ---------- shared bits ---------- */
+.sheet{padding-top:112px}
+.sh{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end;border-top:3px solid var(--rule);padding-top:20px;margin-bottom:48px}
+.sh .no{position:absolute;left:0;top:-27px;border:1.5px solid var(--rule);border-bottom:0;background:var(--paper);padding:3px 11px 2px;font:500 12px var(--mono);letter-spacing:.06em}
+.sh::after{content:"";position:absolute;right:0;top:-17px;width:84px;height:10px;
+  background:linear-gradient(90deg,var(--blue) 0 16.6%,color-mix(in srgb,var(--blue) 60%,transparent) 16.6% 33.3%,color-mix(in srgb,var(--blue) 25%,transparent) 33.3% 50%,var(--orange) 50% 66.6%,color-mix(in srgb,var(--orange) 60%,transparent) 66.6% 83.3%,color-mix(in srgb,var(--orange) 25%,transparent) 83.3% 100%)}
+.sh h2{font-size:clamp(3.4rem,8.4vw,7rem);line-height:.82}
+.sh.long h2{font-size:clamp(2.8rem,6.2vw,5.2rem)}
+.sh .meta{font:400 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:right;padding-bottom:6px}
+.stackline{display:flex;flex-wrap:wrap;gap:2px 0;font:400 13px var(--mono)}
+.stackline li+li::before{content:"/";margin:0 .65em;color:var(--muted)}
+.lab{display:block;font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.btn{position:relative;display:inline-flex;gap:10px;align-items:center;font:500 12.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--card);border:1.5px solid var(--rule);padding:12px 16px;text-decoration:none;cursor:pointer;transition:background .15s,color .15s}
+.btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.hot{background:var(--orange);border-color:var(--orange);color:var(--on-orange)}
+.btn.hot:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+/* chamfered box: drawn with two clip-paths so the cut corner stays transparent */
+.cham{--c:22px;--t:1.5px;position:relative;display:flex;background:var(--rule);padding:var(--t);
+  clip-path:polygon(0 0,calc(100% - var(--c)) 0,100% var(--c),100% 100%,0 100%);transition:background .2s}
+.cham>.in{position:relative;flex:1;min-width:0;background:var(--card);
+  clip-path:polygon(0 0,calc(100% - var(--c) + var(--t)*.5858) 0,100% calc(var(--c) - var(--t)*.5858),100% 100%,0 100%)}
+.cham:hover{background:var(--orange)}
+
+/* ---------- hero ---------- */
+.hero{padding-top:36px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:40px;align-items:start}
+.tag-row{display:flex;justify-content:space-between;gap:12px;border-top:3px solid var(--rule);padding-top:10px;margin-bottom:20px;font:400 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(5rem,12vw,10.4rem);line-height:.8;letter-spacing:-.004em}
+.hero h1 span{display:block}
+.hero h1 .l2{position:relative;color:var(--blue);isolation:isolate;margin-top:.04em}
+.hero h1 .l2::before{content:attr(data-t);position:absolute;left:.03em;top:.024em;z-index:var(--oz);color:var(--orange);mix-blend-mode:var(--ov);pointer-events:none}
+.lead{margin-top:30px;max-width:31ch;font-size:clamp(1.2rem,2vw,1.55rem);line-height:1.34;font-weight:500}
+.lead mark{background:linear-gradient(transparent 14%,var(--orange) 14% 92%,transparent 92%);color:var(--on-orange);padding:0 .16em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.legend{margin-top:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;border-top:1.5px solid var(--rule)}
+.legend li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:11px;padding:9px 0;border-bottom:1px solid var(--hair)}
+.legend b{width:24px;height:24px;border:1.5px solid var(--rule);border-radius:50%;display:grid;place-items:center;font:600 11px var(--mono);margin-top:1px;transition:background .15s,color .15s}
+.legend strong{display:block;font:800 1.08rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.legend span{display:block;font-size:13.5px;line-height:1.35;color:var(--muted)}
+.legend li.hl b{background:var(--orange);border-color:var(--orange);color:var(--on-orange)}
+.fig{position:relative;justify-self:end;width:min(100%,430px);margin:0}
+.fig .box{position:relative}
+.fig .box::before,.fig .box::after{content:"";position:absolute;width:24px;height:24px;border:1.5px solid var(--rule);pointer-events:none}
+.fig .box::before{left:-12px;top:-12px;border-right:0;border-bottom:0}
+.fig .box::after{right:-12px;bottom:-12px;border-left:0;border-top:0}
+.fig figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:20px;font:400 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dims{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:72px}
+.dim .ln{display:flex;align-items:center;gap:12px;min-height:60px}
+.dim .ln::before,.dim .ln::after{content:"";flex:1;height:18px;border-left:1.5px solid var(--rule);background:linear-gradient(var(--rule),var(--rule)) center/100% 1.5px no-repeat}
+.dim .ln::after{border-left:0;border-right:1.5px solid var(--rule)}
+.dim b{font:900 clamp(2.7rem,4.8vw,4rem)/1 var(--display);letter-spacing:-.005em;white-space:nowrap}
+.dim p{margin-top:8px;font-size:14.5px;line-height:1.4;color:var(--muted);max-width:30ch}
+
+/* iso drawing */
+.iso{display:block;width:100%;height:auto;overflow:visible}
+.iso .t{fill:var(--card);stroke:var(--blue);stroke-width:1.4;stroke-linejoin:round}
+.iso .l{fill:url(#htL);stroke:var(--blue);stroke-width:1.4;stroke-linejoin:round}
+.iso .r{fill:url(#htR);stroke:var(--blue);stroke-width:1.4;stroke-linejoin:round}
+.iso .f{fill:var(--card);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.iso .fb{fill:var(--blue);stroke:var(--blue);stroke-width:1}
+.iso .fh{fill:url(#htT);stroke:var(--blue);stroke-width:1.2}
+.iso .fo{fill:none;stroke:var(--blue);stroke-width:1.2}
+.iso .dot{fill:var(--blue)}
+.iso .dotf{fill:var(--card)}
+.iso .ln{stroke:var(--blue);stroke-width:1.2;fill:none}
+.iso .ln.thin{stroke-width:.9}
+.iso .ln.dash{stroke-dasharray:3 4}
+.iso .dt{font:500 10.5px var(--mono);letter-spacing:.06em;fill:var(--muted)}
+.iso .rodl{stroke:var(--orange);stroke-width:3.4;fill:none}
+.iso .ring{fill:none;stroke:var(--orange);stroke-width:2}
+.iso .oring{fill:none;stroke:var(--orange);stroke-width:1.8;stroke-dasharray:2 5;stroke-linecap:round}
+.iso .od{fill:var(--orange)}
+.iso .bc{fill:var(--card);stroke:var(--rule);stroke-width:1.5;transition:fill .15s}
+.iso .bt{font:600 12px var(--mono);fill:var(--ink)}
+.iso .plate.hl .t,.iso .plate.hl .f{fill:color-mix(in srgb,var(--orange) 26%,var(--card))}
+.iso .plate.hl .t,.iso .plate.hl .l,.iso .plate.hl .r{stroke:var(--orange)}
+.iso .bl.hl .bc{fill:var(--orange);stroke:var(--orange)}
+.iso .bl.hl .bt{fill:var(--on-orange)}
+.iso .rod.hl .rodl{stroke-width:5.5}
+.iso .orbit.hl .oring{stroke-width:3.2}
+.iso .spin{animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- work index ---------- */
+.index{border-top:1.5px solid var(--rule)}
+details{border-bottom:1.5px solid var(--rule)}
+summary{position:relative;list-style:none;cursor:pointer;display:grid;grid-template-columns:34px minmax(0,1fr) 168px auto 26px;gap:18px;align-items:center;padding:20px 10px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--orange);opacity:.2;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+summary:hover::before,summary:focus-visible::before{transform:scaleX(1)}
+summary .no{width:34px;height:34px;border:1.5px solid var(--rule);border-radius:50%;display:grid;place-items:center;font:600 12px var(--mono);background:var(--paper)}
+summary h3{font-size:clamp(1.6rem,3.2vw,2.5rem);line-height:.92;font-weight:800;transition:color .2s}
+summary .where{font:400 12px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.res{display:inline-flex;align-items:center;gap:8px;font:500 13px var(--mono);white-space:nowrap}
+.res::before,.res::after{content:"";flex:none;width:26px;height:14px;
+  background:linear-gradient(to top left,transparent calc(50% - .75px),currentColor calc(50% - .75px),currentColor calc(50% + .75px),transparent calc(50% + .75px)) left center/10px 10px no-repeat,linear-gradient(currentColor,currentColor) left center/100% 1.5px no-repeat}
+.res::after{background:linear-gradient(to top left,transparent calc(50% - .75px),currentColor calc(50% - .75px),currentColor calc(50% + .75px),transparent calc(50% + .75px)) right center/10px 10px no-repeat,linear-gradient(currentColor,currentColor) right center/100% 1.5px no-repeat}
+summary .pl{position:relative;width:24px;height:24px}
+summary .pl::before,summary .pl::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+summary .pl::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .25s}
+details[open] summary .pl::after{transform:translate(-50%,-50%) rotate(0)}
+details[open] summary h3{color:var(--blue)}
+.body{position:relative;display:grid;grid-template-columns:34px minmax(0,1.3fr) minmax(0,.7fr);gap:18px;padding:4px 10px 36px}
+.body::before{content:"";position:absolute;left:27px;top:-4px;bottom:30px;border-left:1.5px dashed var(--rule);opacity:.45}
+.body p{grid-column:2;max-width:62ch}
+.body .st{grid-column:3}
+details[open] .body{animation:fadeup .45s ease both}
+@keyframes fadeup{from{opacity:0;transform:translateY(-8px)}}
+
+/* ---------- flowsync ---------- */
+.fs{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:start}
+.fs .kick{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.fs h3{font-size:clamp(4.6rem,10.5vw,9rem);line-height:.8;margin:14px 0 24px}
+.fs .d{max-width:52ch;font-size:1.06rem}
+.notes{counter-reset:n;margin-top:28px;border-top:1.5px solid var(--rule)}
+.notes li{counter-increment:n;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;padding:12px 0;border-bottom:1px solid var(--hair);font-size:15.5px;line-height:1.5}
+.notes li::before{content:counter(n,decimal-leading-zero);font:500 12px var(--mono);color:var(--blue);padding-top:3px}
+.fs .st{margin-top:26px}
+.fs .btn{margin-top:26px}
+.archf{margin:0;position:sticky;top:calc(var(--top) + 28px)}
+.archf .frame{border:1.5px solid var(--rule);background:var(--card);padding:22px 18px 14px}
+.arch{display:block;width:100%;height:auto}
+.arch .nd rect{fill:var(--paper);stroke:var(--rule);stroke-width:1.5}
+.arch .nd.hot rect{fill:var(--orange);stroke:var(--orange)}
+.arch .nt{font:800 19px var(--display);text-transform:uppercase;letter-spacing:.03em;fill:var(--ink)}
+.arch .ns{font:400 11.5px var(--mono);fill:var(--muted)}
+.arch .nd.hot .nt,.arch .nd.hot .ns{fill:var(--on-orange)}
+.arch .cn{fill:none;stroke:var(--rule);stroke-width:1.5}
+.arch .cn.d{stroke-dasharray:5 4}
+.arch .arrow{fill:var(--rule)}
+.arch .cl{font:400 10.5px var(--mono);letter-spacing:.06em;fill:var(--muted)}
+.archf figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:12px;font:400 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- pet grid ---------- */
+.pets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.pets .in{padding:22px 22px 20px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.pets .in::after{content:"";position:absolute;right:0;bottom:0;width:130px;height:130px;pointer-events:none;opacity:.45;
+  background:radial-gradient(circle,var(--blue) 1.1px,transparent 1.5px) 0 0/7px 7px;
+  -webkit-mask-image:linear-gradient(135deg,transparent 52%,#000);mask-image:linear-gradient(135deg,transparent 52%,#000)}
+.pn{display:flex;justify-content:space-between;gap:10px;font:400 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pn b{font-weight:600;color:var(--blue)}
+.pets h3{font-size:2.2rem;line-height:.9;font-weight:800;padding-right:18px}
+.pets p{font-size:15px;line-height:1.55;color:var(--muted);flex:1}
+.pets .links{display:flex;flex-wrap:wrap;gap:6px 18px;position:relative;z-index:1}
+.pets .links a{font:500 12.5px var(--mono);color:var(--blue);text-decoration:none;border-bottom:1.5px solid currentColor}
+.pets .links a:hover{background:var(--orange);color:var(--on-orange);border-color:var(--orange)}
+
+/* ---------- revisions (experience) ---------- */
+.revs{border-top:3px solid var(--rule)}
+.revs .hd,.rv{display:grid;grid-template-columns:90px 190px minmax(0,1fr);gap:24px}
+.revs .hd{padding:12px 10px;font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1.5px solid var(--rule)}
+.rv{padding:36px 10px;border-bottom:1.5px solid var(--rule)}
+.rev{position:relative;width:44px;height:38px;background:var(--rule);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.rev::before{content:"";position:absolute;inset:0;background:var(--paper);clip-path:polygon(50% 13%,88.5% 92%,11.5% 92%)}
+.rev span{position:absolute;left:0;right:0;bottom:5px;text-align:center;font:600 13px var(--mono);z-index:1}
+.rv .when{font:500 13px var(--mono);padding-top:10px;line-height:1.5}
+.rv h3{font-size:clamp(2.4rem,4.6vw,3.6rem);line-height:.88}
+.rv .co{margin-top:10px;font:400 13px var(--mono);color:var(--muted)}
+.rv ul{margin-top:22px;display:grid;gap:11px}
+.rv li{position:relative;padding-left:24px;max-width:70ch}
+.rv li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--orange)}
+
+/* ---------- bom (stack) ---------- */
+.bom{border-top:3px solid var(--rule)}
+.bom .hd,.bom .row{display:grid;grid-template-columns:64px 200px minmax(0,1fr);gap:20px;padding:15px 10px;align-items:baseline}
+.bom .hd{font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1.5px solid var(--rule)}
+.bom .row{border-bottom:1px solid var(--hair);transition:background .2s}
+.bom .row:hover{background:color-mix(in srgb,var(--orange) 14%,transparent)}
+.bom .it{font:500 12px var(--mono);color:var(--blue)}
+.bom h3{font-size:1.7rem;line-height:.95;font-weight:800}
+.bom ul{display:flex;flex-wrap:wrap;font-size:15.5px}
+.bom li+li::before{content:"·";margin:0 .65em;color:var(--muted)}
+.sh2{display:flex;justify-content:space-between;align-items:end;gap:20px;border-top:1.5px solid var(--rule);padding-top:14px;margin:88px 0 28px}
+.sh2 h2{font-size:clamp(2.6rem,5vw,3.8rem);line-height:.85}
+.sh2 .meta{font:400 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-bottom:4px}
+.edu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.edu .cham{--c:16px}
+.edu .in{padding:16px 16px 18px}
+.edu small{display:block;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.edu h3{margin-top:8px;font:700 1.02rem/1.3 var(--body);text-transform:none}
+.edu p{margin-top:6px;font-size:14px;line-height:1.4;color:var(--muted)}
+.edu a{color:var(--blue)}
+
+/* ---------- contact / title block ---------- */
+.big{font-size:clamp(3.6rem,11.6vw,10rem);line-height:.8;letter-spacing:-.004em}
+.big em{position:relative;font-style:normal;color:var(--blue);isolation:isolate;display:inline-block}
+.big em::before{content:attr(data-t);position:absolute;left:.03em;top:.024em;z-index:var(--oz);color:var(--orange);mix-blend-mode:var(--ov);pointer-events:none}
+.mail{display:inline-block;margin-top:38px;font:800 clamp(1.5rem,4.6vw,3.4rem)/1.05 var(--display);letter-spacing:.01em;text-decoration:none;border-bottom:4px solid var(--rule);word-break:break-all}
+.mail:hover{background:var(--orange);color:var(--on-orange);border-color:var(--orange)}
+.contact .cta{align-items:center;margin-top:30px}
+#toast{font:400 12.5px var(--mono);color:var(--muted)}
+.tblock{margin-top:64px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1.5px;background:var(--rule);padding:3px;position:relative}
+.tblock .c{background:var(--card);padding:12px 16px 14px;min-width:0;position:relative}
+.tblock small{display:block;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tblock b{display:block;margin-top:2px;font:600 15.5px/1.3 var(--body);overflow-wrap:anywhere}
+.tblock b a{color:var(--blue);text-decoration:none;border-bottom:1.5px solid currentColor}
+.tblock .n{grid-column:span 4}.tblock .ro{grid-column:span 4}.tblock .ba{grid-column:span 4}
+.tblock .ph{grid-column:span 3}.tblock .em{grid-column:span 5}
+.tblock .sg{grid-column:span 4;grid-row:span 2;min-height:150px}
+.tblock .dw{grid-column:span 2}.tblock .rf{grid-column:span 3}.tblock .sn{grid-column:span 3}
+.sig{display:block;width:100%;max-width:230px;margin-top:6px;overflow:visible}
+.sig path{fill:none;stroke:var(--blue);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.stamp{position:absolute;right:14px;bottom:14px;transform:rotate(-9deg);border:3px double var(--orange);color:var(--orange);font:800 17px/1.05 var(--display);text-transform:uppercase;letter-spacing:.09em;padding:5px 11px 3px;text-align:center;filter:url(#rough);mix-blend-mode:var(--ov);opacity:.95}
+.stamp small{display:block;font:500 9.5px var(--mono);letter-spacing:.16em;color:inherit}
+.end{margin-top:72px;border-top:1.5px solid var(--rule);padding-block:18px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:400 12px var(--mono);letter-spacing:.04em;color:var(--muted)}
+
+/* ---------- motion (all opt-in) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 span{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+  .hero h1 .l2{animation-delay:.1s}
+  .lead{animation:rise .8s .22s cubic-bezier(.2,.8,.2,1) both}
+  .hero .cta,.legend{animation:rise .8s .34s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}}
+  .iso .plate{animation:drop .9s cubic-bezier(.2,.9,.25,1) both;animation-delay:calc(var(--i)*.14s + .15s)}
+  @keyframes drop{from{opacity:0;transform:translate(200px,var(--y0,0px)) translateY(-70px)}}
+  .iso .rod,.iso .orbit,.iso .bl{animation:fade 1s .9s ease both}
+  @keyframes fade{from{opacity:0}}
+  .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.seen{opacity:1;transform:none}
+  .js .sig path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s .3s ease}
+  .js .seen .sig path{stroke-dashoffset:0}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1099px){.top nav a b{display:none}}
+@media (max-width:1000px){
+  .live{display:none}
+  .top nav{justify-content:flex-start;-webkit-mask-image:linear-gradient(90deg,transparent,#000 16px,#000 calc(100% - 16px),transparent);mask-image:linear-gradient(90deg,transparent,#000 16px,#000 calc(100% - 16px),transparent)}
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:56px}
+  .fig{justify-self:center;width:min(100%,400px)}
+  .dims{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 28px}
+  .fs{grid-template-columns:minmax(0,1fr);gap:48px}
+  .archf{position:static}
+  .pets{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .edu{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .status .hide-m{display:none}
+}
+@media (max-width:820px){
+  summary{grid-template-columns:34px minmax(0,1fr) 26px;row-gap:8px;column-gap:14px}
+  summary .where{grid-column:2;grid-row:2}
+  summary .res{grid-column:2;grid-row:3}
+  summary .pl{grid-column:3;grid-row:1}
+  .body{grid-template-columns:minmax(0,1fr);padding:4px 10px 30px}
+  .body::before{display:none}
+  .body p,.body .st{grid-column:1}
+  .revs .hd{display:none}
+  .rv{grid-template-columns:auto minmax(0,1fr);gap:14px 18px;padding:28px 10px}
+  .rv .when{padding-top:0;align-self:center}
+  .rv>div:last-child{grid-column:1/-1}
+  .bom .hd{display:none}
+  .bom .row{grid-template-columns:36px minmax(0,1fr);gap:6px 14px}
+  .bom .row ul{grid-column:2}
+  .tblock .n,.tblock .ro{grid-column:span 6}
+  .tblock .ba,.tblock .ph,.tblock .em{grid-column:span 12}
+  .tblock .sg{grid-column:span 12;grid-row:auto}
+  .tblock .dw{grid-column:span 5}.tblock .rf{grid-column:span 4}.tblock .sn{grid-column:span 3}
+  .tblock .dw b{white-space:nowrap}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding-inline:16px}
+  .top{gap:12px;padding-inline:14px}
+  .sheet{padding-top:92px}
+  .sh{margin-bottom:34px}
+  .sh .meta{display:none}
+  .sh::after{width:60px}
+  .legend{grid-template-columns:minmax(0,1fr)}
+  .dims{margin-top:56px}
+  .pets{grid-template-columns:minmax(0,1fr)}
+  .edu{grid-template-columns:minmax(0,1fr)}
+  .res::before,.res::after{width:16px}
+  .status{padding-inline:14px}
+  .status .c{display:none}
+  .stamp{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<a class="skip" href="#work">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="rough" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+</svg>
 
-<main class="wrap">
-  <header class="hero">
-    <div class="status">Open to Full Stack / Backend roles · Poznań or remote</div>
-    <h1>Maksym Burlaka</h1>
-    <p class="role">Full Stack Developer · <b>PHP / Laravel</b> + <b>JavaScript / React</b></p>
-    <p class="lead">I build REST APIs, admin panels and B2B platforms end to end, from database schema to the React screen. Three years of commercial work on CRM systems, e-commerce stores and compliance software, with a background in cybersecurity.</p>
-    <div class="contact">
-      <button class="chip" type="button" id="copy-email" data-copy="maksburlakao9@gmail.com"><span class="k">email</span> maksburlakao9@gmail.com</button>
-      <span class="chip"><span class="k">phone</span> +48 736 163 775</span>
-      <a class="chip" href="https://github.com/BurlakaM" target="_blank" rel="noopener"><span class="k">code</span> GitHub ↗</a>
-      <a class="chip" href="https://www.linkedin.com/in/maksim-burlaka/" target="_blank" rel="noopener"><span class="k">profile</span> LinkedIn ↗</a>
-      <a class="chip" href="https://www.credly.com/users/maks-burlaka" target="_blank" rel="noopener"><span class="k">badges</span> Credly ↗</a>
-      <span class="toast" id="toast" role="status" aria-live="polite"></span>
+<header class="top">
+  <a class="brand" href="#cover"><i></i>M.Burlaka</a>
+  <nav aria-label="Sheets">
+    <a href="#work"><b>02</b>Work</a>
+    <a href="#flowsync"><b>03</b>FlowSync</a>
+    <a href="#pets"><b>04</b>Pet projects</a>
+    <a href="#exp"><b>05</b>Experience</a>
+    <a href="#stack"><b>06</b>Stack</a>
+    <a href="#contact"><b>07</b>Contact</a>
+  </nav>
+  <div class="right">
+    <span class="live"><i></i><span>Open to work · <span id="clock">Poznań</span></span></span>
+    <button class="tbtn" id="theme" type="button" aria-pressed="false"><span>Blueprint</span></button>
+  </div>
+</header>
+
+<div class="ruler" aria-hidden="true"><div class="scale"></div><i class="ptr"></i></div>
+
+<div class="page">
+<main id="main">
+
+<!-- ============ 01 COVER ============ -->
+<section id="cover" class="hero" data-no="01" data-name="Cover">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hleft">
+        <div class="tag-row"><span>Sheet 01 — Cover</span><span>Drawn by M. Burlaka</span></div>
+        <h1><span class="l1">Maksym</span><span class="l2" data-t="Burlaka">Burlaka</span></h1>
+        <p class="lead">Full stack engineer. I ship B2B platforms from schema to screen, and <mark>review every line</mark> my AI agents write.</p>
+        <div class="cta">
+          <a class="btn hot" href="#contact">Hire me →</a>
+          <a class="btn" href="https://github.com/BurlakaM" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/maksim-burlaka/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+        <ol class="legend" aria-label="The stack at a glance">
+          <li data-k="1"><b>1</b><div><strong>AI-first</strong><span>Claude Code skills and review agents</span></div></li>
+          <li data-k="2"><b>2</b><div><strong>Frontend</strong><span>React · Next.js · TypeScript</span></div></li>
+          <li data-k="3"><b>3</b><div><strong>Backend</strong><span>Laravel · NestJS · REST</span></div></li>
+          <li data-k="4"><b>4</b><div><strong>Data</strong><span>PostgreSQL · MySQL · Redis</span></div></li>
+          <li data-k="5"><b>5</b><div><strong>Delivery</strong><span>Docker · GitHub Actions</span></div></li>
+          <li data-k="6"><b>6</b><div><strong>Security</strong><span>JWT · RBAC · tenant isolation</span></div></li>
+        </ol>
+      </div>
+      <figure class="fig">
+        <div class="box"><svg class="iso" viewBox="0 0 420 640" role="img" aria-label="Exploded isometric drawing of the stack: an AI orbit above frontend, backend, data and delivery layers, with a security rod running through every layer."><defs>
+<pattern id="htL" width="4.5" height="4.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="2.25" cy="2.25" r=".95" class="dot"/></pattern>
+<pattern id="htR" width="3.4" height="3.4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="1.7" cy="1.7" r="1.15" class="dot"/></pattern>
+<pattern id="htT" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="2.5" cy="2.5" r=".8" class="dot"/></pattern>
+</defs><g class="guides"><line class="ln dash thin" x1="70.1" y1="187" x2="70.1" y2="279"/><line class="ln dash thin" x1="329.9" y1="187" x2="329.9" y2="279"/><line class="ln dash thin" x1="70.1" y1="291" x2="70.1" y2="383"/><line class="ln dash thin" x1="329.9" y1="291" x2="329.9" y2="383"/><line class="ln dash thin" x1="70.1" y1="395" x2="70.1" y2="487"/><line class="ln dash thin" x1="329.9" y1="395" x2="329.9" y2="487"/></g><g class="dimv">
+<line class="ln thin dash" x1="62.1" y1="175" x2="26" y2="175"/><line class="ln thin dash" x1="62.1" y1="279" x2="26" y2="279"/>
+<line class="ln thin" x1="34" y1="175" x2="34" y2="279"/>
+<line class="ln" x1="30" y1="179" x2="38" y2="171"/><line class="ln" x1="30" y1="283" x2="38" y2="275"/>
+<text class="dt" x="26" y="227" text-anchor="middle" transform="rotate(-90 26 227)">104</text>
+<text class="dt" x="12" y="470" text-anchor="middle" transform="rotate(-90 12 470)">EXPLODED VIEW · NOT TO SCALE</text>
+</g><g class="plate" data-k="5" style="--i:0;--y0:412px" transform="translate(200,412)"><polygon class="l" points="-129.9,75 0,150 0,162 -129.9,87"/><polygon class="r" points="129.9,75 0,150 0,162 129.9,87"/><polygon class="t" points="0,0 129.9,75 0,150 -129.9,75"/><polygon class="l" points="-34.64,8 5.2,31 5.2,55 -34.64,32"/><polygon class="r" points="38.11,12 5.2,31 5.2,55 38.11,36"/><polygon class="t" points="-1.73,-11 38.11,12 5.2,31 -34.64,8"/><line class="ln thin" x1="38.11" y1="28" x2="5.2" y2="47"/><line class="ln thin" x1="-34.64" y1="24" x2="5.2" y2="47"/><line class="ln thin" x1="38.11" y1="20" x2="5.2" y2="39"/><line class="ln thin" x1="-34.64" y1="16" x2="5.2" y2="39"/><polygon class="l" points="-5.2,51 34.64,74 34.64,98 -5.2,75"/><polygon class="r" points="67.55,55 34.64,74 34.64,98 67.55,79"/><polygon class="t" points="27.71,32 67.55,55 34.64,74 -5.2,51"/><line class="ln thin" x1="67.55" y1="71" x2="34.64" y2="90"/><line class="ln thin" x1="-5.2" y1="67" x2="34.64" y2="90"/><line class="ln thin" x1="67.55" y1="63" x2="34.64" y2="82"/><line class="ln thin" x1="-5.2" y1="59" x2="34.64" y2="82"/><polygon class="l" points="-90.07,54 -48.5,78 -48.5,102 -90.07,78"/><polygon class="r" points="-8.66,55 -48.5,78 -48.5,102 -8.66,79"/><polygon class="t" points="-50.23,31 -8.66,55 -48.5,78 -90.07,54"/><line class="ln thin" x1="-8.66" y1="71" x2="-48.5" y2="94"/><line class="ln thin" x1="-90.07" y1="70" x2="-48.5" y2="94"/><line class="ln thin" x1="-8.66" y1="63" x2="-48.5" y2="86"/><line class="ln thin" x1="-90.07" y1="62" x2="-48.5" y2="86"/></g><g class="plate" data-k="4" style="--i:1;--y0:308px" transform="translate(200,308)"><polygon class="l" points="-129.9,75 0,150 0,162 -129.9,87"/><polygon class="r" points="129.9,75 0,150 0,162 129.9,87"/><polygon class="t" points="0,0 129.9,75 0,150 -129.9,75"/><path class="l" d="M-42.53,43 L-42.53,53 A26.94,15.56 0 0 0 11.36,53 L11.36,43 Z"/><ellipse class="t" cx="-15.59" cy="43" rx="26.94" ry="15.56"/><path class="l" d="M-42.53,29 L-42.53,39 A26.94,15.56 0 0 0 11.36,39 L11.36,29 Z"/><ellipse class="t" cx="-15.59" cy="29" rx="26.94" ry="15.56"/><path class="l" d="M-42.53,15 L-42.53,25 A26.94,15.56 0 0 0 11.36,25 L11.36,15 Z"/><ellipse class="t" cx="-15.59" cy="15" rx="26.94" ry="15.56"/><path class="l" d="M34.1,65 L34.1,75 A19.6,11.31 0 0 0 73.29,75 L73.29,65 Z"/><ellipse class="t" cx="53.69" cy="65" rx="19.6" ry="11.31"/><path class="l" d="M34.1,51 L34.1,61 A19.6,11.31 0 0 0 73.29,61 L73.29,51 Z"/><ellipse class="t" cx="53.69" cy="51" rx="19.6" ry="11.31"/><polygon class="l" points="-25.98,91 1.73,107 1.73,129 -25.98,113"/><polygon class="r" points="29.44,91 1.73,107 1.73,129 29.44,113"/><polygon class="t" points="1.73,75 29.44,91 1.73,107 -25.98,91"/><line class="ln thin" x1="29.44" y1="102" x2="1.73" y2="118"/><line class="ln thin" x1="-25.98" y1="102" x2="1.73" y2="118"/></g><g class="plate" data-k="3" style="--i:2;--y0:204px" transform="translate(200,204)"><polygon class="l" points="-129.9,75 0,150 0,162 -129.9,87"/><polygon class="r" points="129.9,75 0,150 0,162 129.9,87"/><polygon class="t" points="0,0 129.9,75 0,150 -129.9,75"/><polygon class="l" points="-15.59,16 69.28,65 69.28,74 -15.59,25"/><polygon class="r" points="79.67,59 69.28,65 69.28,74 79.67,68"/><polygon class="t" points="-5.2,10 79.67,59 69.28,65 -15.59,16"/><polygon class="l" points="-51.96,37 10.39,73 10.39,82 -51.96,46"/><polygon class="r" points="20.78,67 10.39,73 10.39,82 20.78,76"/><polygon class="t" points="-41.57,31 20.78,67 10.39,73 -51.96,37"/><polygon class="l" points="-88.33,58 -13.86,101 -13.86,110 -88.33,67"/><polygon class="r" points="-3.46,95 -13.86,101 -13.86,110 -3.46,104"/><polygon class="t" points="-77.94,52 -3.46,95 -13.86,101 -88.33,58"/><path class="l" d="M76.09,63 L76.09,79 A12.25,7.07 0 0 0 100.58,79 L100.58,63 Z"/><ellipse class="t" cx="88.33" cy="63" rx="12.25" ry="7.07"/><path class="l" d="M18.93,72 L18.93,88 A12.25,7.07 0 0 0 43.42,88 L43.42,72 Z"/><ellipse class="t" cx="31.18" cy="72" rx="12.25" ry="7.07"/><path class="l" d="M-5.32,100 L-5.32,116 A12.25,7.07 0 0 0 19.18,116 L19.18,100 Z"/><ellipse class="t" cx="6.93" cy="100" rx="12.25" ry="7.07"/><line class="ln thin" x1="74.48" y1="67" x2="81.41" y2="71"/><line class="ln thin" x1="15.59" y1="75" x2="24.25" y2="80"/><line class="ln thin" x1="-8.66" y1="103" x2="-0.87" y2="107.5"/></g><g class="plate" data-k="2" style="--i:3;--y0:100px" transform="translate(200,100)"><polygon class="l" points="-129.9,75 0,150 0,162 -129.9,87"/><polygon class="r" points="129.9,75 0,150 0,162 129.9,87"/><polygon class="t" points="0,0 129.9,75 0,150 -129.9,75"/><polygon class="f" points="0,19.99 95.26,74.99 0,129.99 -95.26,74.99"/><polygon class="fb" points="0,19.98 95.26,74.98 83.14,81.98 -12.12,26.98"/><polygon class="fh" points="-12.12,34.98 6.93,45.98 -62.35,85.98 -81.41,74.98"/><polygon class="fo" points="13.86,49.98 69.28,81.98 38.11,99.98 -17.32,67.98"/><polygon class="fo" points="-24.25,71.98 31.18,103.98 0,121.98 -55.43,89.98"/><circle class="dotf" cx="-0.87" cy="26.47" r="1.6"/><circle class="dotf" cx="5.2" cy="29.97" r="1.6"/><circle class="dotf" cx="11.26" cy="33.47" r="1.6"/></g><g class="rod" data-k="6"><line class="rodl" x1="200" y1="140" x2="200" y2="240"/><line class="rodl" x1="200" y1="264" x2="200" y2="344"/><line class="rodl" x1="200" y1="368" x2="200" y2="448"/><line class="rodl" x1="200" y1="472" x2="200" y2="552"/><line class="rodl" x1="200" y1="576" x2="200" y2="602"/><ellipse class="ring" cx="200" cy="240" rx="9" ry="5.2"/><ellipse class="ring" cx="200" cy="344" rx="9" ry="5.2"/><ellipse class="ring" cx="200" cy="448" rx="9" ry="5.2"/><ellipse class="ring" cx="200" cy="552" rx="9" ry="5.2"/></g><g class="orbit" data-k="1" transform="translate(200,140) scale(1,.5774)">
+<circle class="oring" r="85.7" vector-effect="non-scaling-stroke"/>
+<g class="spin"><circle class="od" cx="85.7" cy="0" r="7"/><circle class="od" cx="-42.85" cy="74.2" r="5.5"/><circle class="od" cx="-42.85" cy="-74.2" r="5.5"/></g>
+</g><g class="bl" data-k="1"><line class="ln thin" x1="286" y1="140" x2="379" y2="140"/><circle class="bc" cx="392" cy="140" r="13"/><text class="bt" x="392" y="140" text-anchor="middle" dominant-baseline="central">1</text></g><g class="bl" data-k="2"><line class="ln thin" x1="335.9" y1="175" x2="379" y2="175"/><circle class="bc" cx="392" cy="175" r="13"/><text class="bt" x="392" y="175" text-anchor="middle" dominant-baseline="central">2</text></g><g class="bl" data-k="3"><line class="ln thin" x1="335.9" y1="279" x2="379" y2="279"/><circle class="bc" cx="392" cy="279" r="13"/><text class="bt" x="392" y="279" text-anchor="middle" dominant-baseline="central">3</text></g><g class="bl" data-k="4"><line class="ln thin" x1="335.9" y1="383" x2="379" y2="383"/><circle class="bc" cx="392" cy="383" r="13"/><text class="bt" x="392" y="383" text-anchor="middle" dominant-baseline="central">4</text></g><g class="bl" data-k="5"><line class="ln thin" x1="335.9" y1="487" x2="379" y2="487"/><circle class="bc" cx="392" cy="487" r="13"/><text class="bt" x="392" y="487" text-anchor="middle" dominant-baseline="central">5</text></g><g class="bl" data-k="6"><line class="ln thin" x1="200" y1="602" x2="200" y2="601"/><circle class="bc" cx="200" cy="614" r="13"/><text class="bt" x="200" y="614" text-anchor="middle" dominant-baseline="central">6</text></g></svg></div>
+        <figcaption><span>Fig. 0 — How I build</span><span>Hover the list</span></figcaption>
+      </figure>
     </div>
-  </header>
 
-  <section class="ep" aria-labelledby="h-work">
-    <div class="ep-head"><span class="m">GET</span><span class="path">/projects</span><h2 id="h-work">Selected work</h2></div>
-    <div class="cases">
-      <article class="case">
-        <div class="where">IQ Technology · 2026</div>
-        <h3>Contractor scheduling calendar</h3>
-        <p>Interactive event calendar for a compliance platform, used to coordinate contractors and site visits. React front end on REST endpoints with server-side conflict checks.</p>
-        <div class="result">result: <span>~30% fewer scheduling conflicts</span></div>
-        <div class="tags"><span class="tag">React</span><span class="tag">MUI</span><span class="tag">REST API</span><span class="tag">RBAC</span></div>
-      </article>
-      <article class="case">
-        <div class="where">IQ Technology · 2026</div>
-        <h3>Shared UI component library</h3>
-        <p>20+ reusable components (forms, tables, filters, modals) that keep the FlexiForm and FlexiDoc modules consistent and faster to build.</p>
-        <div class="result">result: <span>~25% less UI time per feature</span></div>
-        <div class="tags"><span class="tag">React</span><span class="tag">Bootstrap</span><span class="tag">MUI</span></div>
-      </article>
-      <article class="case">
-        <div class="where">SWIT · 2023–2026</div>
-        <h3>Custom CRM</h3>
-        <p>CRM for users, roles, transactions, workflows and notifications, replacing manual spreadsheet work for a client team.</p>
-        <div class="result">result: <span>~15 hours saved per week</span></div>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">Queues</span><span class="tag">JavaScript</span></div>
-      </article>
-      <article class="case">
-        <div class="where">SWIT · 2023–2026</div>
-        <h3>API performance on large databases</h3>
-        <p>Profiled slow endpoints, added indexes, removed N+1 queries, cached hot reads in Redis and moved imports and reports to background jobs.</p>
-        <div class="result">result: <span>~40% faster API responses</span></div>
-        <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">Laravel</span></div>
-      </article>
+    <div class="dims">
+      <div class="dim reveal"><div class="ln"><b>4 yrs</b></div><p>Commercial full stack work, backend and frontend about 50/50</p></div>
+      <div class="dim reveal"><div class="ln"><b>8+</b></div><p>Production modules shipped in 6 months at IQ Technology</p></div>
+      <div class="dim reveal"><div class="ln"><b>80%</b></div><p>Test coverage of business logic, APIs and payment flows</p></div>
+      <div class="dim reveal"><div class="ln"><b>−50%</b></div><p>Time on writing tests and code review, thanks to custom AI skills</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="ep" aria-labelledby="h-pet">
-    <div class="ep-head"><span class="m">GET</span><span class="path">/github</span><h2 id="h-pet">Pet projects</h2></div>
-    <div class="cases">
-      <article class="case">
-        <div class="where">Open source · Laravel 12</div>
-        <h3>Domain Check</h3>
-        <p>Domain availability monitor. Each user adds their own domains with a check interval, HTTP method and timeout; the Laravel Scheduler runs the checks, logs status code and response time to a history table and sends web notifications.</p>
-        <div class="tags"><span class="tag">PHP 8</span><span class="tag">Laravel 12</span><span class="tag">MySQL</span><span class="tag">Scheduler</span><span class="tag">Notifications</span><span class="tag">Tailwind</span></div>
-        <a class="chip" href="https://github.com/BurlakaM/domain-check" target="_blank" rel="noopener"><span class="k">repo</span> BurlakaM/domain-check ↗</a>
-      </article>
-      <article class="case">
-        <div class="where">Open source · Full stack</div>
+<!-- ============ 02 WORK ============ -->
+<section id="work" class="sheet" data-no="02" data-name="Work">
+  <div class="wrap">
+    <div class="sh reveal"><span class="no">SHEET 02/07</span><h2>Work</h2><span class="meta">Detail views · open a row</span></div>
+    <div class="index reveal">
+
+      <details open>
+        <summary><span class="no">01</span><h3>B2B compliance platform</h3><span class="where">IQ Technology · 2026</span><span class="res">8+ modules / 6 mo</span><span class="pl"></span></summary>
+        <div class="body"><p>Inspections, audits, scheduling and contractor coordination for compliance-heavy businesses. I own the data model, APIs, business logic and UI, and take features from client requirements to release in 1–2 week phased rollouts. RBAC across 20 user roles keeps each person to the records they may see, across 20 multi-tenant client companies, with audit-trail reports and 3 real-time dashboards per client.</p>
+        <div class="st"><span class="lab">Stack</span><ul class="stackline"><li>Laravel</li><li>React</li><li>REST API</li><li>RBAC</li><li>Multi-tenant</li><li>PHPUnit</li></ul></div></div>
+      </details>
+
+      <details>
+        <summary><span class="no">02</span><h3>AI-first dev workflow</h3><span class="where">IQ Technology · 2026</span><span class="res">−50% tests + review</span><span class="pl"></span></summary>
+        <div class="body"><p>4+ custom skills and agents for Claude Code: one builds a feature end to end with tests, others review code against the project's structure and conventions. The agents take the repetitive work; every change is still reviewed by me for architecture, security and performance.</p>
+        <div class="st"><span class="lab">Stack</span><ul class="stackline"><li>Claude Code</li><li>Custom skills</li><li>Review agents</li><li>Testing</li></ul></div></div>
+      </details>
+
+      <details>
+        <summary><span class="no">03</span><h3>Contractor scheduling calendar</h3><span class="where">IQ Technology · 2026</span><span class="res">−30% conflicts</span><span class="pl"></span></summary>
+        <div class="body"><p>Interactive calendar to coordinate contractors and site visits. Every booking passes server-side conflict validation, so double-booking is caught before it reaches the schedule.</p>
+        <div class="st"><span class="lab">Stack</span><ul class="stackline"><li>React</li><li>MUI</li><li>REST API</li></ul></div></div>
+      </details>
+
+      <details>
+        <summary><span class="no">04</span><h3>Shared UI component library</h3><span class="where">IQ Technology · 2026</span><span class="res">−25% UI time</span><span class="pl"></span></summary>
+        <div class="body"><p>20+ reusable forms, tables, filters and modals that keep the FlexiForm and FlexiDoc modules consistent and faster to build.</p>
+        <div class="st"><span class="lab">Stack</span><ul class="stackline"><li>React</li><li>MUI</li><li>Bootstrap</li></ul></div></div>
+      </details>
+
+      <details>
+        <summary><span class="no">05</span><h3>Search: 4 s to under 800 ms</h3><span class="where">SWIT · 2023–26</span><span class="res">5× faster search</span><span class="pl"></span></summary>
+        <div class="body"><p>Replaced a heavy database view with an indexed search table synced in the background and cached the popular queries. In the same system I moved imports, reports and notifications to background jobs, which made key admin screens about 2× faster.</p>
+        <div class="st"><span class="lab">Stack</span><ul class="stackline"><li>MySQL</li><li>Indexing</li><li>Redis</li><li>Queues</li></ul></div></div>
+      </details>
+
+      <details>
+        <summary><span class="no">06</span><h3>Custom CRM from scratch</h3><span class="where">SWIT · 2023–26</span><span class="res">~15 h saved / week</span><span class="pl"></span></summary>
+        <div class="body"><p>Designed and built for a 10-person client team: users, roles, transactions, workflows and notifications, replacing manual spreadsheet work.</p>
+        <div class="st"><span class="lab">Stack</span><ul class="stackline"><li>Laravel</li><li>MySQL</li><li>Queues</li><li>JavaScript</li></ul></div></div>
+      </details>
+
+      <details>
+        <summary><span class="no">07</span><h3>Payments and banking integrations</h3><span class="where">SWIT · 2023–26</span><span class="res">5+ stores</span><span class="pl"></span></summary>
+        <div class="body"><p>Payment systems and banking APIs for online payments, order reconciliation and checkout across 5+ e-commerce projects, plus payment and delivery UX work that lifted conversion by roughly 10–15%.</p>
+        <div class="st"><span class="lab">Stack</span><ul class="stackline"><li>Payment APIs</li><li>OpenCart</li><li>WordPress</li><li>Webhooks</li></ul></div></div>
+      </details>
+
+      <details>
+        <summary><span class="no">08</span><h3>Legacy refactor to layers</h3><span class="where">SWIT · 2023–26</span><span class="res">3–4× faster features</span><span class="pl"></span></summary>
+        <div class="body"><p>Refactored 10+ legacy modules to SOLID principles and a layered architecture, so new features in old code take a third of the time. Also introduced Docker environments and Git-based CI/CD with code review.</p>
+        <div class="st"><span class="lab">Stack</span><ul class="stackline"><li>SOLID</li><li>Docker</li><li>CI/CD</li><li>PHP</li></ul></div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 FLOWSYNC ============ -->
+<section id="flowsync" class="sheet" data-no="03" data-name="FlowSync">
+  <div class="wrap">
+    <div class="sh long reveal"><span class="no">SHEET 03/07</span><h2>Pet project, taken seriously</h2><span class="meta">Detail A · FlowSync</span></div>
+    <div class="fs">
+      <div class="reveal">
+        <span class="kick">Open source · NestJS + React · in active development</span>
         <h3>FlowSync</h3>
-        <p>Full-stack TypeScript app with a Nest.js API, React front end and MySQL, fully containerized with Docker Compose for dev and prod. A GitHub Actions pipeline builds and pushes images to Docker Hub on every push to main.</p>
-        <div class="tags"><span class="tag">Nest.js</span><span class="tag">React</span><span class="tag">MySQL 8</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
-        <a class="chip" href="https://github.com/BurlakaM/flowsync" target="_blank" rel="noopener"><span class="k">repo</span> BurlakaM/flowsync ↗</a>
+        <p class="d">A Jira-style task tracker: projects, tasks, comments, tags, assignees, a board, notifications and activity feeds. I use it as a lab to practise production-grade architecture, and every decision is written down in 47 ADRs.</p>
+        <ul class="notes">
+          <li>Auth: short-lived access token, httpOnly refresh cookie with rotation; reuse of a spent token kills the whole session.</li>
+          <li>Closed-by-default API, per-project access rules that answer 404 to outsiders, CASL permissions.</li>
+          <li>Transactional outbox, domain events, Redis queue, Socket.IO realtime that works across instances.</li>
+          <li>Optimistic concurrency, cursor pagination, request IDs in every log and error.</li>
+          <li>Prometheus and Grafana, load scenarios, backup and restore verification, security scans.</li>
+          <li>Vitest, MSW, axe, Playwright, mutation testing, CodeQL and release-please in CI.</li>
+        </ul>
+        <div class="st"><span class="lab">Stack</span><ul class="stackline"><li>NestJS</li><li>Prisma 7</li><li>PostgreSQL 16</li><li>React 19</li><li>Vite</li><li>Tailwind 4 + shadcn/ui</li><li>TanStack Query</li><li>Docker Compose</li><li>GitHub Actions</li></ul></div>
+        <a class="btn hot" href="https://github.com/BurlakaM/flowsync" target="_blank" rel="noopener">Read the code ↗</a>
+      </div>
+      <figure class="archf reveal">
+        <div class="frame"><svg class="arch" viewBox="0 0 460 540" role="img" aria-label="FlowSync architecture: a React single page app behind nginx talks to a NestJS API. The API uses PostgreSQL, a Redis job queue that sends mail, and Socket.IO for realtime, and exposes metrics to Prometheus and Grafana."><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" class="arrow"/></marker></defs><path class="cn" d="M230 64 V102" marker-end="url(#ah)"/><path class="cn" d="M230 154 V194" marker-end="url(#ah)"/><path class="cn" d="M100 284 V328" marker-end="url(#ah)"/><path class="cn d" d="M230 284 V328" marker-end="url(#ah)"/><path class="cn d" d="M360 284 V328" marker-end="url(#ah)" marker-start="url(#ah)"/><path class="cn d" d="M230 386 V418" marker-end="url(#ah)"/><path class="cn d" d="M60 240 H22 V508 H42" marker-end="url(#ah)"/><text class="cl" x="240" y="88">HTTPS</text><text class="cl" x="240" y="178">/api</text><text class="cl" x="240" y="408">emails</text><text class="cl" x="9" y="374" text-anchor="middle" transform="rotate(-90 9 374)">/metrics</text><g class="nd"><rect x="120" y="14" width="220" height="50"/><text class="nt" x="230" y="36" text-anchor="middle">React 19 SPA</text><text class="ns" x="230" y="54" text-anchor="middle">Vite · TanStack Query</text></g><g class="nd"><rect x="120" y="104" width="220" height="50"/><text class="nt" x="230" y="126" text-anchor="middle">nginx</text><text class="ns" x="230" y="144" text-anchor="middle">serves SPA · proxies /api</text></g><g class="nd hot"><rect x="60" y="196" width="340" height="88"/><text class="nt" x="230" y="224" text-anchor="middle">NestJS API</text><text class="ns" x="230" y="246" text-anchor="middle">REST · OpenAPI · Swagger (dev)</text><text class="ns" x="230" y="263" text-anchor="middle">JWT sessions · CASL permissions</text></g><g class="nd"><rect x="44" y="330" width="112" height="56"/><text class="nt" x="100" y="355" text-anchor="middle">PostgreSQL</text><text class="ns" x="100" y="374" text-anchor="middle">v16 · Prisma 7</text></g><g class="nd"><rect x="174" y="330" width="112" height="56"/><text class="nt" x="230" y="355" text-anchor="middle">Redis</text><text class="ns" x="230" y="374" text-anchor="middle">job queue</text></g><g class="nd"><rect x="304" y="330" width="112" height="56"/><text class="nt" x="360" y="355" text-anchor="middle">Socket.IO</text><text class="ns" x="360" y="374" text-anchor="middle">realtime</text></g><g class="nd"><rect x="174" y="420" width="112" height="44"/><text class="nt" x="230" y="442" text-anchor="middle">Mailpit</text><text class="ns" x="230" y="460" text-anchor="middle">dev mailbox</text></g><g class="nd"><rect x="44" y="486" width="372" height="44"/><text class="nt" x="230" y="508" text-anchor="middle">Prometheus → Grafana</text><text class="ns" x="230" y="526" text-anchor="middle">metrics · alerts · dashboards</text></g></svg></div>
+        <figcaption><span>Fig. 1 — Runtime architecture</span><span>Simplified</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 PETS ============ -->
+<section id="pets" class="sheet" data-no="04" data-name="Pet projects">
+  <div class="wrap">
+    <div class="sh reveal"><span class="no">SHEET 04/07</span><h2>More on GitHub</h2><span class="meta">All repos are public</span></div>
+    <div class="pets">
+      <article class="cham reveal"><div class="in">
+        <div class="pn"><b>PET-01</b><span>Laravel 12 · monitoring</span></div>
+        <h3>Domain Check</h3>
+        <p>Domain availability monitor. Per-user domains with their own interval, GET/HEAD method and timeout; Laravel Scheduler runs the checks, logs status code, response time and errors to a history table and sends web notifications.</p>
+        <ul class="stackline"><li>PHP 8</li><li>MySQL</li><li>Scheduler</li><li>Tailwind</li></ul>
+        <div class="links"><a href="https://github.com/BurlakaM/domain-check" target="_blank" rel="noopener">domain-check ↗</a></div>
+      </div></article>
+
+      <article class="cham reveal"><div class="in">
+        <div class="pn"><b>PET-02</b><span>NestJS + Next.js · two repos</span></div>
+        <h3>Train Schedule</h3>
+        <p>Register, log in, then view, create, edit and delete your own trains. JWT with guards and class-validator on a NestJS API; Next.js App Router front end with an auth context and protected routes.</p>
+        <ul class="stackline"><li>NestJS</li><li>Next.js</li><li>PostgreSQL</li><li>JWT</li></ul>
+        <div class="links"><a href="https://github.com/BurlakaM/train-schedule-backend" target="_blank" rel="noopener">backend ↗</a><a href="https://github.com/BurlakaM/train-schedule-frontend" target="_blank" rel="noopener">frontend ↗</a></div>
+      </div></article>
+
+      <article class="cham reveal"><div class="in">
+        <div class="pn"><b>PET-03</b><span>Laravel · test assignment</span></div>
+        <h3>Leads and calls API</h3>
+        <p>Backend API with real business rules: the first call moves a lead from new to in_progress, an unassigned lead is claimed by the calling manager, success means won, three no_answer in a row means lost.</p>
+        <ul class="stackline"><li>Laravel</li><li>REST API</li><li>Business logic</li></ul>
+        <div class="links"><a href="https://github.com/BurlakaM/lead-test-task" target="_blank" rel="noopener">lead-test-task ↗</a></div>
+      </div></article>
+
+      <article class="cham reveal"><div class="in">
+        <div class="pn"><b>PET-04</b><span>Laravel · test assignment</span></div>
+        <h3>SERP Rank Checker</h3>
+        <p>Mini app that calls the DataForSEO API to find where a website ranks in Google organic results.</p>
+        <ul class="stackline"><li>Laravel</li><li>Blade</li><li>DataForSEO API</li></ul>
+        <div class="links"><a href="https://github.com/BurlakaM/data-for-seo-test-task" target="_blank" rel="noopener">data-for-seo-test-task ↗</a></div>
+      </div></article>
+
+      <article class="cham reveal"><div class="in">
+        <div class="pn"><b>PET-05</b><span>Laravel + Vue · test assignment</span></div>
+        <h3>To-Do board</h3>
+        <p>Task board that starts with one command: Docker Compose runs PHP-FPM, Nginx and MySQL, installs dependencies, builds Vue, generates the app key and migrates.</p>
+        <ul class="stackline"><li>Laravel</li><li>Vue</li><li>Docker</li><li>Nginx</li></ul>
+        <div class="links"><a href="https://github.com/BurlakaM/to-do-test-task" target="_blank" rel="noopener">to-do-test-task ↗</a></div>
+      </div></article>
+
+      <article class="cham reveal"><div class="in">
+        <div class="pn"><b>PET-06</b><span>PHP · test assignment</span></div>
+        <h3>Company CRM</h3>
+        <p>Small CRM for managing companies and their employees.</p>
+        <ul class="stackline"><li>PHP</li><li>Laravel</li></ul>
+        <div class="links"><a href="https://github.com/BurlakaM/company-crm" target="_blank" rel="noopener">company-crm ↗</a></div>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 EXPERIENCE ============ -->
+<section id="exp" class="sheet" data-no="05" data-name="Experience">
+  <div class="wrap">
+    <div class="sh reveal"><span class="no">SHEET 05/07</span><h2>Experience</h2><span class="meta">Revision history</span></div>
+    <div class="revs reveal">
+      <div class="hd"><span>Rev</span><span>Period</span><span>Description</span></div>
+      <article class="rv">
+        <div><div class="rev"><span>B</span></div></div>
+        <div class="when">Mar 2026<br>— now</div>
+        <div>
+          <h3>Full Stack Developer</h3>
+          <div class="co">IQ Technology · B2B compliance platforms</div>
+          <ul>
+            <li>Built 4+ Claude Code skills and agents that write tests and review code, cutting that work by up to 50%.</li>
+            <li>Shipped 8+ operational modules to production within 6 months, owning data model, APIs, logic and UI.</li>
+            <li>RBAC across 20 roles for 20 multi-tenant clients, with real-time dashboards and audit-trail reports.</li>
+            <li>Reached 80% test coverage with unit, feature and integration tests.</li>
+            <li>Built a scheduling calendar with server-side validation, about 30% fewer conflicts.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="rv">
+        <div><div class="rev"><span>A</span></div></div>
+        <div class="when">Aug 2023<br>— Mar 2026</div>
+        <div>
+          <h3>Full Stack Developer</h3>
+          <div class="co">SWIT "SITE WEB IT" · e-commerce, CRM, automation</div>
+          <ul>
+            <li>Built a CRM from scratch for a 10-person team, saving about 15 hours a week.</li>
+            <li>Cut product search from 4 s to under 800 ms; made admin screens about 2× faster.</li>
+            <li>Integrated payment and banking APIs across 5+ online stores.</li>
+            <li>Refactored 10+ legacy modules to SOLID, making feature work 3–4× faster.</li>
+            <li>Ran 4–5 client backends in parallel, advising on trade-offs before building.</li>
+          </ul>
+        </div>
       </article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="ep" aria-labelledby="h-exp">
-    <div class="ep-head"><span class="m">GET</span><span class="path">/experience</span><h2 id="h-exp">Experience</h2></div>
-    <div class="jobs">
-      <div class="job">
-        <div class="when">Mar 2026 – now</div>
-        <div>
-          <h3>Full Stack Developer</h3>
-          <p class="co">IQ Technology · B2B platforms for inspections, audits and contractor coordination</p>
-          <ul>
-            <li>Shipped 8+ operational modules in 6 months, from schema and REST API to React UI.</li>
-            <li>Connected dashboards and audit-trail reports to role-based access control for multi-tenant clients.</li>
-            <li>Took features from client requirements to release in 1–2 week cycles during a phased rollout.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when">Aug 2023 – Mar 2026</div>
-        <div>
-          <h3>Full Stack Developer</h3>
-          <p class="co">SWIT "SITE WEB IT" · e-commerce, CRM and automation for small and mid-sized businesses</p>
-          <ul>
-            <li>Raised conversion by ~10–15% across 5+ online stores through payment and delivery API integrations and checkout UX work.</li>
-            <li>Introduced Docker environments and Git-based CI/CD with code review.</li>
-            <li>Refactored legacy modules toward SOLID and a layered architecture.</li>
-          </ul>
-        </div>
-      </div>
+<!-- ============ 06 STACK ============ -->
+<section id="stack" class="sheet" data-no="06" data-name="Stack">
+  <div class="wrap">
+    <div class="sh reveal"><span class="no">SHEET 06/07</span><h2>Stack</h2><span class="meta">Bill of materials</span></div>
+    <div class="bom reveal">
+      <div class="hd"><span>Item</span><span>Category</span><span>Components</span></div>
+      <div class="row"><span class="it">01</span><h3>AI-first</h3><ul><li>Claude Code</li><li>Custom skills</li><li>Review agents</li><li>Reviewing AI code</li></ul></div>
+      <div class="row"><span class="it">02</span><h3>Backend</h3><ul><li>PHP 8, Laravel, Yii2</li><li>Node.js, NestJS</li><li>REST, OpenAPI</li><li>Webhooks, WebSockets</li></ul></div>
+      <div class="row"><span class="it">03</span><h3>Frontend</h3><ul><li>React, Next.js, Vue</li><li>TypeScript, ES6+</li><li>Tailwind, MUI</li><li>Component libraries</li></ul></div>
+      <div class="row"><span class="it">04</span><h3>Data</h3><ul><li>PostgreSQL, MySQL</li><li>MongoDB, Redis</li><li>Indexing, query tuning</li><li>Queues, background jobs</li></ul></div>
+      <div class="row"><span class="it">05</span><h3>Security</h3><ul><li>JWT, OAuth</li><li>RBAC</li><li>Tenant isolation</li><li>Audit trails</li></ul></div>
+      <div class="row"><span class="it">06</span><h3>Delivery</h3><ul><li>Docker, Compose</li><li>GitHub Actions</li><li>Git, Linux, AWS S3</li><li>Debugging from logs</li></ul></div>
+      <div class="row"><span class="it">07</span><h3>Quality</h3><ul><li>PHPUnit, Vitest</li><li>Unit, feature, e2e</li><li>Code review</li><li>SOLID, layers</li></ul></div>
+      <div class="row"><span class="it">08</span><h3>Languages</h3><ul><li>English B1+</li><li>Ukrainian, native</li><li>Russian, native</li></ul></div>
     </div>
-  </section>
 
-  <section class="ep" aria-labelledby="h-skills">
-    <div class="ep-head"><span class="m">GET</span><span class="path">/skills</span><h2 id="h-skills">Stack</h2></div>
-    <div class="skills"><dl>
-      <dt>backend</dt><dd>PHP 8, Laravel, Yii2, Node.js, Nest.js</dd>
-      <dt>frontend</dt><dd>JavaScript, React, Next.js, Tailwind CSS, SCSS, Material UI, Bootstrap</dd>
-      <dt>api</dt><dd>REST API design, third-party and payment integrations, authentication, role-based access control</dd>
-      <dt>data</dt><dd>MySQL, PostgreSQL, query optimization, indexing, Redis caching, queues, background jobs</dd>
-      <dt>tooling</dt><dd>Docker, Git, GitHub/GitLab, CI/CD, code review</dd>
-      <dt>platforms</dt><dd>WordPress, OpenCart</dd>
-      <dt>languages</dt><dd>English B1+, Ukrainian (native), Russian (native)</dd>
-    </dl></div>
-  </section>
-
-  <section class="ep" aria-labelledby="h-edu">
-    <div class="ep-head"><span class="m">GET</span><span class="path">/education</span><h2 id="h-edu">Education and certificates</h2></div>
+    <div class="sh2 reveal"><h2>Education</h2><span class="meta">Approvals</span></div>
     <div class="edu">
-      <div class="edu-item"><span class="kind">Degree · 2021–2025</span><h3>Bachelor's in Cybersecurity</h3><p>NTU "Kharkiv Polytechnic Institute"</p></div>
-      <div class="edu-item"><span class="kind">Course · 2022–2023</span><h3>Web Programming</h3><p>ITSTEP Academy</p></div>
-      <div class="edu-item"><span class="kind">Cisco · Jan 2025</span><h3>CyberOps Associate</h3><p>Security monitoring and incident analysis</p></div>
-      <div class="edu-item"><span class="kind">Cisco · Nov 2023</span><h3>CCNA: Enterprise Networking, Security, and Automation</h3><p>Network security, virtualization, automation</p></div>
+      <div class="cham reveal"><div class="in"><small>Degree · 2021–25</small><h3>Bachelor's in Cybersecurity</h3><p>NTU "Kharkiv Polytechnic Institute"</p></div></div>
+      <div class="cham reveal"><div class="in"><small>Course · 2022–23</small><h3>Web Programming</h3><p>ITSTEP Academy</p></div></div>
+      <div class="cham reveal"><div class="in"><small>Cisco · Jan 2025</small><h3>CyberOps Associate</h3><p>Security monitoring, incident analysis</p></div></div>
+      <div class="cham reveal"><div class="in"><small>Cisco · Nov 2023</small><h3>CCNA: Enterprise Networking, Security, and Automation</h3><p><a href="https://www.credly.com/users/maks-burlaka" target="_blank" rel="noopener">Badges on Credly ↗</a></p></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="ep post" aria-labelledby="h-contact">
-    <div class="ep-head"><span class="m">POST</span><span class="path">/contact</span><h2 id="h-contact">Let's talk</h2></div>
-    <div class="final">
-      <p>Looking for a Full Stack or Laravel role in Poland or remote. Email is the fastest way to reach me.</p>
-      <div class="contact">
-        <button class="chip" type="button" id="copy-email-2" data-copy="maksburlakao9@gmail.com"><span class="k">copy</span> maksburlakao9@gmail.com</button>
+<!-- ============ 07 CONTACT ============ -->
+<section id="contact" class="sheet contact" data-no="07" data-name="Contact">
+  <div class="wrap">
+    <div class="sh reveal"><span class="no">SHEET 07/07</span><h2>Contact</h2><span class="meta">Title block</span></div>
+    <h2 class="big reveal">Let's ship<br>something <em data-t="solid.">solid.</em></h2>
+    <a class="mail reveal" href="mailto:maksburlakao9@gmail.com">maksburlakao9@gmail.com</a>
+    <div class="cta">
+      <button class="btn hot" type="button" id="copy">Copy email</button>
+      <a class="btn" href="https://www.linkedin.com/in/maksim-burlaka/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <span id="toast" role="status" aria-live="polite"></span>
+    </div>
+
+    <div class="tblock reveal">
+      <div class="c n"><small>Name</small><b>Maksym Burlaka</b></div>
+      <div class="c ro"><small>Role</small><b>Full Stack Engineer</b></div>
+      <div class="c ba"><small>Base</small><b>Poznań, Poland · remote friendly</b></div>
+      <div class="c ph"><small>Phone</small><b>+48 736 163 775</b></div>
+      <div class="c em"><small>Email</small><b><a href="mailto:maksburlakao9@gmail.com">maksburlakao9@gmail.com</a></b></div>
+      <div class="c sg"><small>Signed</small>
+        <svg class="sig" viewBox="0 0 220 90" aria-hidden="true"><path pathLength="1" d="M10,62 C16,18 26,12 30,50 C32,64 34,30 46,22 C56,16 60,34 52,52 C50,60 60,54 68,42 C74,33 80,36 76,47 C74,54 86,54 96,42 C104,33 110,38 104,50 C101,57 114,52 130,36 C140,27 146,34 138,46 C134,52 146,50 168,34 M20,74 C70,63 140,68 206,50"/></svg>
+        <div class="stamp" aria-hidden="true">Open to work<small>Rev 2026.11</small></div>
       </div>
+      <div class="c dw"><small>Dwg no.</small><b>MB-2026-11</b></div>
+      <div class="c rf"><small>Rev</small><b>2026.11</b></div>
+      <div class="c sn"><small>Sheet</small><b>07 / 07</b></div>
     </div>
-  </section>
-
-  <footer>© 2026 Maksym Burlaka · Poznań, Poland</footer>
+  </div>
+</section>
 </main>
+
+<footer class="end wrap"><span>© 2026 Maksym Burlaka</span><span>Built by hand, no frameworks.</span></footer>
+</div>
+
+<div class="status" aria-hidden="true">
+  <span class="c hide-m">DWG MB-2026-11 · REV 2026.11</span>
+  <span>Sheet <b id="sn">01</b>/07 — <b id="st">Cover</b></span>
+  <span class="sg"><span class="c hide-m">X <i id="cx">0000</i> Y <i id="cy">0000</i></span><span class="c hide-m">Scale 1:1</span><span class="c">[D] <span id="hint">Blueprint</span></span></span>
+</div>
 
 <script>
 (function(){
-  var toast=document.getElementById('toast');
-  function say(t){toast.textContent=t;setTimeout(function(){toast.textContent='';},2500);}
-  document.querySelectorAll('[data-copy]').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var v=btn.getAttribute('data-copy');
-      var fallback=function(){var r=document.createRange();r.selectNodeContents(btn);var s=getSelection();s.removeAllRanges();s.addRange(r);say('Selected, press Ctrl+C');};
-      try{navigator.clipboard.writeText(v).then(function(){say('Email copied');},fallback);}catch(e){fallback();}
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return [].slice.call((c||document).querySelectorAll(s))};
+  var root=document.documentElement;
+
+  /* clock */
+  var clock=$('#clock');
+  function tick(){try{clock.textContent='Poznań '+new Date().toLocaleTimeString('en-GB',{timeZone:'Europe/Warsaw',hour:'2-digit',minute:'2-digit'});}catch(e){}}
+  tick();setInterval(tick,30000);
+
+  /* copy email */
+  var toast=$('#toast');
+  function say(s){toast.textContent=s;setTimeout(function(){toast.textContent='';},2600);}
+  $('#copy').addEventListener('click',function(){
+    var v='maksburlakao9@gmail.com';
+    var fb=function(){say('Copy blocked, use the link above');};
+    try{navigator.clipboard.writeText(v).then(function(){say('Copied ✓');},fb);}catch(e){fb();}
+  });
+
+  /* theme: vellum (light) <-> blueprint (dark) */
+  var tbtn=$('#theme');
+  function isDark(){var t=root.dataset.theme;if(t)return t==='dark';return matchMedia('(prefers-color-scheme: dark)').matches;}
+  function label(){var d=isDark();tbtn.firstElementChild.textContent=d?'Vellum':'Blueprint';tbtn.setAttribute('aria-pressed',String(d));var h=$('#hint');if(h)h.textContent=d?'Vellum':'Blueprint';}
+  function setTheme(t){root.dataset.theme=t;try{localStorage.setItem('mb-theme',t);}catch(e){}label();}
+  tbtn.addEventListener('click',function(){setTheme(isDark()?'light':'dark');});
+  addEventListener('keydown',function(e){
+    if((e.key==='d'||e.key==='D')&&!e.metaKey&&!e.ctrlKey&&!e.altKey&&!/INPUT|TEXTAREA|SELECT/.test((document.activeElement||{}).tagName||''))tbtn.click();
+  });
+  label();
+
+  /* current sheet -> nav + status bar */
+  var links=$$('.top nav a'),sn=$('#sn'),st=$('#st');
+  function setSheet(sec){
+    sn.textContent=sec.dataset.no;st.textContent=sec.dataset.name;
+    links.forEach(function(a){var on=a.getAttribute('href')==='#'+sec.id;a.classList.toggle('on',on);if(on){var n=a.parentNode;if(n.scrollWidth>n.clientWidth+2)n.scrollTo({left:a.offsetLeft-n.clientWidth/2+a.offsetWidth/2,behavior:'smooth'});}});
+  }
+  var secs=$$('main section[id]');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setSheet(e.target);});},{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){io.observe(s);});
+    var rv=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');rv.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    $$('.reveal').forEach(function(el,i){
+      var sib=el.parentNode.querySelectorAll(':scope > .reveal');
+      var idx=[].indexOf.call(sib,el);
+      if(idx>0&&idx<7)el.style.transitionDelay=(idx*70)+'ms';
+      rv.observe(el);
     });
+  }else{$$('.reveal').forEach(function(el){el.classList.add('seen');});}
+
+  /* ruler that scrolls with the page + CAD-style cursor readout */
+  var ruler=$('.ruler'),scale=$('.scale'),ptr=$('.ptr'),cx=$('#cx'),cy=$('#cy');
+  var labels=[],lastY=0,px=0,py=0,raf=0,TOP=52;
+  function pad(n){n=Math.max(0,Math.round(n));return ('0000'+n).slice(-4);}
+  function build(){
+    scale.innerHTML='';labels=[];
+    var n=Math.ceil(innerHeight/100)+3;
+    for(var i=0;i<n;i++){var b=document.createElement('b');b.style.top=(i*100)+'px';scale.appendChild(b);labels.push(b);}
+  }
+  function draw(){
+    raf=0;
+    var y=window.scrollY+TOP,off=y%100,base=Math.floor(y/100);
+    if(labels.length){
+      scale.style.transform='translate3d(0,'+(-off)+'px,0)';
+      for(var i=0;i<labels.length;i++)labels[i].textContent=(base+i)*100;
+    }
+    ptr.style.transform='translate3d(0,'+(py-TOP)+'px,0)';
+    cx.textContent=pad(px);cy.textContent=pad(window.scrollY+py);
+  }
+  function req(){if(!raf)raf=requestAnimationFrame(draw);}
+  build();req();
+  addEventListener('scroll',req,{passive:true});
+  addEventListener('resize',function(){build();req();});
+  addEventListener('pointermove',function(e){px=e.pageX;py=e.clientY;ruler.classList.add('live');req();},{passive:true});
+  document.addEventListener('pointerleave',function(){ruler.classList.remove('live');});
+
+  /* legend <-> drawing highlight */
+  function hl(k,on){$$('[data-k="'+k+'"]').forEach(function(x){x.classList.toggle('hl',on);});}
+  $$('.legend li,.iso [data-k]').forEach(function(el){
+    var k=el.getAttribute('data-k');
+    el.addEventListener('mouseenter',function(){hl(k,true);});
+    el.addEventListener('mouseleave',function(){hl(k,false);});
   });
 })();
 </script>
